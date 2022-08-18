@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>스터디명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="study : ${studyList}">
+                <td th:text="${study.getId}"></td>
+                <td><a href="#" th:href="@{/study/detail/{studyId}(studyId = ${study.getId})}"
+                       th:text="${study.studyTitle}"></a></td>
+                <td><a  th:href="@{/study/delete/{studyId}(studyId = ${study.getId})}" th:text="삭제"></a></td>
+                <td>
+                    <a th:if="${#dates.create(#temporals.year(#temporals.createDate(study.studyStart, 'yyyy-MM-dd')),#temporals.month(#temporals.createDate(study.studyStart, 'yyyy-MM-dd')),#temporals.day(#temporals.createDate(study.studyStart, 'yyyy-MM-dd'))).after(#dates.createNow())}"
+                       th:href="@{/study/modify/{studyId}(studyId = ${study.getId})}" th:text="수정">
+
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
+<!--th:if="${#dates.createToday().before(${study.studyStart})}"-->
