@@ -13,7 +13,7 @@ var input = document.querySelector('input[name=studyTag]')
 var tagify = new Tagify(input);
 
 tagify.on('add', function() {
-    console.log(tagify.value);
+
 })
 
 //라디오버튼

@@ -67,7 +67,11 @@ public class StudyController {
     @GetMapping("/study/delete/{studyId}")
     public String delete(@PathVariable Long studyId) {
         Study studies = studyService.findByid(studyId).get();
+        Book books = bookService.findByid(studyId).get();
+        Lecture lectures = lectureService.findById(studyId).get();
         studyService.delete(studies);
+        bookService.delete(books);
+        lectureService.delete(lectures);
         return "redirect:/";
     }
 

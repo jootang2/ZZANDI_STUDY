@@ -36,4 +36,8 @@ public class LectureService {
         l1.setLectureName(lectureDto.getLectureName());
         lectureRepository.save(l1);
     }
+
+    public void delete(Lecture lectures) {
+        lectureRepository.delete(lectures);
+    }
 }

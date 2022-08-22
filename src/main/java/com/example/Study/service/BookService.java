@@ -1,6 +1,7 @@
 package com.example.Study.service;
 
 import com.example.Study.domain.Book;
+import com.example.Study.domain.Study;
 import com.example.Study.dto.BookDto;
 import com.example.Study.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,9 @@ public class BookService {
         b1.setBookPublisher(bookDto.getBookPublisher());
         b1.setBookUrl(bookDto.getBookUrl());
         bookRepository.save(b1);
+    }
+
+    public void delete(Book books) {
+        bookRepository.delete(books);
     }
 }
