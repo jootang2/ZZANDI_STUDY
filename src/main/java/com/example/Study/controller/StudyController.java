@@ -2,7 +2,10 @@ package com.example.Study.controller;
 
 import javax.validation.Valid;
 
+import com.example.Study.domain.Book;
+import com.example.Study.dto.BookDto;
 import com.example.Study.exception.StudyForm;
+import com.example.Study.service.BookService;
 import org.springframework.validation.BindingResult;
 import com.example.Study.domain.Study;
 import com.example.Study.dto.StudyDto;
@@ -21,6 +24,7 @@ import java.util.List;
 public class StudyController {
 
     private final StudyService studyService;
+    private final BookService bookService;
 
     @GetMapping("/study/create")
     public String studyCreate(StudyForm studyForm) {
@@ -28,12 +32,12 @@ public class StudyController {
     }
 
     @PostMapping("/study/create")
-    public String studyCreate(@Valid StudyForm studyForm, BindingResult bindingResult) {
+    public String studyCreate(@Valid StudyForm studyForm, BindingResult bindingResult, BookDto bookDto) {
         if (bindingResult.hasErrors()) {
             return "studyForm";
         }
-
         studyService.save(studyForm);
+        bookService.save(bookDto);
         return "redirect:/";
     }
 

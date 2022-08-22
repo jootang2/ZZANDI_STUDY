@@ -23,6 +23,7 @@ $(document).ready(function(){
     $('#book').hide();
     $('#lecture').hide(); // 초깃값 설정
 
+
     $("input[name='studyType']").change(function(){
         if($("input[name='studyType']:checked").val() == 'Book'){
             $('#book').show();
@@ -34,3 +35,4 @@ $(document).ready(function(){
         }
     });
 });
+

@@ -1,6 +1,8 @@
 package com.example.Study.service;
 
+import com.example.Study.domain.Book;
 import com.example.Study.domain.Study;
+import com.example.Study.dto.BookDto;
 import com.example.Study.dto.StudyDto;
 import com.example.Study.exception.StudyForm;
 import com.example.Study.repository.StudyRepository;
@@ -24,6 +26,7 @@ public class StudyService {
 
     public void save(@Valid StudyForm studyform) {
         Study s1 = new Study();
+
         s1.setStudyTitle(studyform.getStudyTitle());
         s1.setStudyStart(studyform.getStudyStart());
         s1.setStudyEnd(studyform.getStudyEnd());
