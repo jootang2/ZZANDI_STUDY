@@ -19,7 +19,7 @@ public class Book {
     @Column(name = "BOOK_NAME")
     private String bookName;
     @Column(name = "BOOK_PAGE")
-    private int bookPage;
+    private Integer bookPage;
     @Column(name = "BOOK_AUTHOR")
     private String bookAuthor;
     @Column(name = "BOOK_PUBLISHER")

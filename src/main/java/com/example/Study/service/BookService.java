@@ -1,14 +1,12 @@
 package com.example.Study.service;
 
 import com.example.Study.domain.Book;
-import com.example.Study.domain.Study;
 import com.example.Study.dto.BookDto;
-import com.example.Study.exception.StudyForm;
 import com.example.Study.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -30,4 +28,7 @@ public class BookService {
         bookRepository.save(b1);
     }
 
+    public Optional<Book> findByid(Long studyId) {
+        return bookRepository.findById(studyId);
+    }
 }

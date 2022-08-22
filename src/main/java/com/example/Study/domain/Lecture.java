@@ -21,5 +21,5 @@ public class Lecture {
     @Column(name = "LECTURE_LECTURER")
     private String lecturer;
     @Column(name = "LECTURE_NUM")
-    private int lectureNumber;
+    private Integer lectureNumber;
 }

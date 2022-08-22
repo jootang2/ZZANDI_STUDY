@@ -12,7 +12,7 @@ import lombok.Setter;
 public class BookDto {
     private Long id;
     private String bookName;
-    private int bookPage;
+    private Integer bookPage;
     private String bookAuthor;
     private String bookPublisher;
 
@@ -32,11 +32,11 @@ public class BookDto {
         this.bookName = bookName;
     }
 
-    public int getBookPage() {
+    public Integer getBookPage() {
         return bookPage;
     }
 
-    public void setBookPage(int bookPage) {
+    public void setBookPage(Integer bookPage) {
         this.bookPage = bookPage;
     }
 
