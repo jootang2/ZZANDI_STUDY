@@ -78,11 +78,13 @@ public class StudyController {
     }
 
     @PostMapping("/study/modify/{studyId}")
-    public String modify(@Valid StudyForm studyForm, BindingResult bindingResult, @PathVariable Long studyId) {
+    public String modify(@Valid StudyForm studyForm, BindingResult bindingResult, @PathVariable Long studyId, BookDto bookDto, LectureDto lectureDto) {
         if (bindingResult.hasErrors()) {
             return "studyModify";
         }
         studyService.modify(studyId, studyForm);
+        bookService.modify(studyId, bookDto);
+        lectureService.modify(studyId, lectureDto);
         return "redirect:/";
     }
 

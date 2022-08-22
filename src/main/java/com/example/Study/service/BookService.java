@@ -31,4 +31,15 @@ public class BookService {
     public Optional<Book> findByid(Long studyId) {
         return bookRepository.findById(studyId);
     }
+
+    public void modify(Long studyId, BookDto bookDto) {
+        Book b1 = new Book();
+        b1.setId(studyId);
+        b1.setBookName(bookDto.getBookName());
+        b1.setBookPage(bookDto.getBookPage());
+        b1.setBookAuthor(bookDto.getBookAuthor());
+        b1.setBookPublisher(bookDto.getBookPublisher());
+        b1.setBookUrl(bookDto.getBookUrl());
+        bookRepository.save(b1);
+    }
 }

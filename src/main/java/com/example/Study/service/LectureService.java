@@ -27,4 +27,13 @@ public class LectureService {
     public Optional<Lecture> findById(Long studyId) {
         return lectureRepository.findById(studyId);
     }
+
+    public void modify(Long studyId, LectureDto lectureDto) {
+        Lecture l1 = new Lecture();
+        l1.setId(studyId);
+        l1.setLectureNumber(lectureDto.getLectureNumber());
+        l1.setLecturer(lectureDto.getLecturer());
+        l1.setLectureName(lectureDto.getLectureName());
+        lectureRepository.save(l1);
+    }
 }
